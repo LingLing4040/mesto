@@ -1,3 +1,19 @@
 .like {
     margin-right: 20px;
+    opacity: 1;
+    transition: opacity 0.3s;
+    background-image: url(../../images/like.svg);
+    object-fit: contain;
+    width: 22px;
+    height: 19px;
+    align-self: center;
+}
+
+.like:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.like:active {
+    background-image: url(../../images/like-active.svg);
 }
