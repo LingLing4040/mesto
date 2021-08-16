@@ -7,3 +7,12 @@
     padding: 13px 63px;
     box-sizing: border-box;
 }
+
+@media screen and (max-width: 767px) {
+    .add-button {
+        margin: auto;
+        width: 88.125%;
+        height: 50px;
+        padding: 15px 41%;
+    }
+}
