@@ -109,19 +109,25 @@
                     </div>
                 </section>
                 <div class="popup">
-                    <button class="popup__container">
+                    <div class="popup__container">
                         <h2 class="popup__title">Редактировать профиль</h2>
                         <input
                             type="text"
                             placeholder="Жак-Ив Кусто"
-                            class="popup__input-name"
+                            class="popup__input popup__input_name"
                         />
                         <input
                             type="text"
                             placeholder="Исследователь океана"
-                            class="popup__input-occupation"
+                            class="popup__input popup__input_occupation"
                         />
-                    </button>
+                        <button class="popup__submit-button">Сохранить</button>
+                        <img
+                            class="popup__close-button link"
+                            src="./images/Close-icon.svg"
+                            alt="Закрыть"
+                        />
+                    </div>
                 </div>
             </main>
             <footer class="footer">© 2021 Mesto Russia</footer>
