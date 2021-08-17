@@ -1,0 +1,11 @@
+.popup__input-name {
+    margin: 54px auto 0;
+    outline: none;
+}
+
+.popup__input-name::placeholder {
+    font-size: 14px;
+    line-height: 1.21;
+    font-weight: normal;
+    color: black;
+}
