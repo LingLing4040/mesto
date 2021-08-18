@@ -24,14 +24,12 @@
                         alt="Фото профиля"
                     />
                     <div class="profile__info">
-                        <div class="profile__name">
-                            <h1 class="profile__text">Жак-Ив Кусто</h1>
-                            <img
-                                class="edit-button link"
-                                src="./images/edit-button.svg"
-                                alt="Редактировать"
-                            />
-                        </div>
+                        <h1 class="profile__name">Жак-Ив Кусто</h1>
+                        <img
+                            class="edit-button link"
+                            src="./images/edit-button.svg"
+                            alt="Редактировать"
+                        />
                         <p class="profile__occupation">Исследователь океана</p>
                     </div>
                     <img
@@ -109,25 +107,27 @@
                     </div>
                 </section>
                 <div class="popup">
-                    <div class="popup__container">
+                    <form class="popup__container">
                         <h2 class="popup__title">Редактировать профиль</h2>
                         <input
                             type="text"
-                            placeholder="Жак-Ив Кусто"
+                            placeholder="Имя профиля"
                             class="popup__input popup__input_name"
                         />
                         <input
                             type="text"
-                            placeholder="Исследователь океана"
+                            placeholder="Род деятельности"
                             class="popup__input popup__input_occupation"
                         />
-                        <button class="popup__submit-button">Сохранить</button>
+                        <button type="submit" class="popup__submit-button">
+                            Сохранить
+                        </button>
                         <img
                             class="popup__close-button link"
                             src="./images/Close-icon.svg"
                             alt="Закрыть"
                         />
-                    </div>
+                    </form>
                 </div>
             </main>
             <footer class="footer">© 2021 Mesto Russia</footer>

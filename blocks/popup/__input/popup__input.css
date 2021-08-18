@@ -5,13 +5,12 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.popup__input::placeholder {
-    font-size: 14px;
-    line-height: 1.21;
-    font-weight: normal;
-    color: black;
-}
-
 .popup__input:focus {
     outline-color: rgb(0, 132, 255);
+}
+
+@media screen and (max-width: 767px) {
+    .popup__input {
+        width: 238px;
+    }
 }

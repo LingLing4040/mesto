@@ -1,3 +1,12 @@
 .popup__input_name {
     margin: 54px auto 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 767px) {
+    .popup__input_name {
+        margin: 75px auto 0;
+    }
 }
