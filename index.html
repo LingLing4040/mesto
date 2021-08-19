@@ -19,27 +19,37 @@
             <main>
                 <section class="profile">
                     <img
-                        class="avatar"
+                        class="profile__avatar"
                         src="./images/avatar.jpg"
                         alt="Фото профиля"
                     />
                     <div class="profile__info">
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
-                        <img
-                            class="edit-button link"
-                            src="./images/edit-button.svg"
-                            alt="Редактировать"
-                        />
+                        <button
+                            type="button"
+                            class="profile__button profile__button_type_edit"
+                        >
+                            <img
+                                class="profile__edit-icon"
+                                src="./images/edit-button.svg"
+                                alt="Редактировать"
+                            />
+                        </button>
                         <p class="profile__occupation">Исследователь океана</p>
                     </div>
-                    <img
-                        class="add-button link"
-                        src="./images/add.svg"
-                        alt="Добавить"
-                    />
+                    <button
+                        type="button"
+                        class="profile__button profile__button_type_add"
+                    >
+                        <img
+                            class="profile__add-icon"
+                            src="./images/add.svg"
+                            alt="Добавить"
+                        />
+                    </button>
                 </section>
                 <section class="elements">
-                    <div class="element">
+                    <article class="element">
                         <img
                             class="element__photo"
                             src="./images/Karachaevsk.jpg"
@@ -47,10 +57,13 @@
                         />
                         <div class="element__footer">
                             <h2 class="element__title">Карачаевск</h2>
-                            <div class="like"></div>
+                            <button
+                                type="button"
+                                class="element__like"
+                            ></button>
                         </div>
-                    </div>
-                    <div class="element">
+                    </article>
+                    <article class="element">
                         <img
                             class="element__photo"
                             src="./images/Elbrus.jpg"
@@ -58,10 +71,13 @@
                         />
                         <div class="element__footer">
                             <h2 class="element__title">Гора Эльбрус</h2>
-                            <div class="like"></div>
+                            <button
+                                type="button"
+                                class="element__like"
+                            ></button>
                         </div>
-                    </div>
-                    <div class="element">
+                    </article>
+                    <article class="element">
                         <img
                             class="element__photo"
                             src="./images/Dombai.jpg"
@@ -69,10 +85,13 @@
                         />
                         <div class="element__footer">
                             <h2 class="element__title">Домбай</h2>
-                            <div class="like"></div>
+                            <button
+                                type="button"
+                                class="element__like"
+                            ></button>
                         </div>
-                    </div>
-                    <div class="element">
+                    </article>
+                    <article class="element">
                         <img
                             class="element__photo"
                             src="./images/Elbrus.jpg"
@@ -80,10 +99,13 @@
                         />
                         <div class="element__footer">
                             <h2 class="element__title">Гора Эльбрус</h2>
-                            <div class="like"></div>
+                            <button
+                                type="button"
+                                class="element__like"
+                            ></button>
                         </div>
-                    </div>
-                    <div class="element">
+                    </article>
+                    <article class="element">
                         <img
                             class="element__photo"
                             src="./images/Dombai.jpg"
@@ -91,10 +113,13 @@
                         />
                         <div class="element__footer">
                             <h2 class="element__title">Домбай</h2>
-                            <div class="like"></div>
+                            <button
+                                type="button"
+                                class="element__like"
+                            ></button>
                         </div>
-                    </div>
-                    <div class="element">
+                    </article>
+                    <article class="element">
                         <img
                             class="element__photo"
                             src="./images/Karachaevsk.jpg"
@@ -102,19 +127,36 @@
                         />
                         <div class="element__footer">
                             <h2 class="element__title">Карачаево-Черкесия</h2>
-                            <div class="like"></div>
+                            <button
+                                type="button"
+                                class="element__like"
+                            ></button>
                         </div>
-                    </div>
+                    </article>
                 </section>
-                <div class="popup">
-                    <form class="popup__container">
-                        <h2 class="popup__title">Редактировать профиль</h2>
+            </main>
+            <footer>
+                <p class="footer">© 2021 Mesto Russia</p>
+            </footer>
+            <div class="popup">
+                <div class="popup__container">
+                    <button type="button" class="popup__close-button">
+                        <img
+                            class="popup__close-icon"
+                            src="./images/Close-icon.svg"
+                            alt="Закрыть"
+                        />
+                    </button>
+                    <h2 class="popup__title">Редактировать профиль</h2>
+                    <form name="Edit" class="popup__form">
                         <input
+                            name="profile-name"
                             type="text"
                             placeholder="Имя профиля"
                             class="popup__input popup__input_type_name"
                         />
                         <input
+                            name="profile-occupation"
                             type="text"
                             placeholder="Род деятельности"
                             class="popup__input popup__input_type_occupation"
@@ -122,16 +164,10 @@
                         <button type="submit" class="popup__submit-button">
                             Сохранить
                         </button>
-                        <img
-                            class="popup__close-button link"
-                            src="./images/Close-icon.svg"
-                            alt="Закрыть"
-                        />
                     </form>
                 </div>
-            </main>
-            <footer class="footer">© 2021 Mesto Russia</footer>
+            </div>
         </div>
-        <script src="./script.js"></script>
+        <script src="./scripts/script.js"></script>
     </body>
 </html>

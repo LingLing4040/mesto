@@ -1,41 +1,33 @@
 let popup = document.querySelector('.popup');
-let formElement = popup.querySelector('.popup__container');
-let editButton = document.querySelector('.edit-button');
+let formElement = popup.querySelector('.popup__form');
+let editButton = document.querySelector('.profile__button_type_edit');
 let closeButton = popup.querySelector('.popup__close-button');
 let nameInput = formElement.querySelector('.popup__input_type_name');
 let jobInput = formElement.querySelector('.popup__input_type_occupation');
 let profileName = document.querySelector('.profile__name');
 let profileJob = document.querySelector('.profile__occupation');
 
-function opened() {
+function fillProfileForm() {
     nameInput.value = profileName.textContent;
     jobInput.value = profileJob.textContent;
 }
 
-function edit() {
+function openPopup() {
     popup.classList.add('popup_opened');
-    opened();
+    fillProfileForm();
 }
 
-function close() {
+function closePopup() {
     popup.classList.remove('popup_opened');
 }
 
-editButton.addEventListener('click', edit);
-
-closeButton.addEventListener('click', close);
-
-function formSubmitHandler(evt) {
+function handleProfileFormSubmit(evt) {
     evt.preventDefault();
     profileName.textContent = nameInput.value;
     profileJob.textContent = jobInput.value;
-    close();
+    closePopup();
 }
 
-formElement.addEventListener('submit', formSubmitHandler);
-
-document.addEventListener('keydown', function (event) {
-    if (event.code == 'Escape') {
-        close();
-    }
-});
+editButton.addEventListener('click', openPopup);
+closeButton.addEventListener('click', closePopup);
+formElement.addEventListener('submit', handleProfileFormSubmit);
