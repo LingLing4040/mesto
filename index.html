@@ -48,92 +48,7 @@
                         />
                     </button>
                 </section>
-                <section class="elements">
-                    <article class="element">
-                        <img
-                            class="element__photo"
-                            src="./images/Karachaevsk.jpg"
-                            alt="Карачаевск"
-                        />
-                        <div class="element__footer">
-                            <h2 class="element__title">Карачаевск</h2>
-                            <button
-                                type="button"
-                                class="element__like"
-                            ></button>
-                        </div>
-                    </article>
-                    <article class="element">
-                        <img
-                            class="element__photo"
-                            src="./images/Elbrus.jpg"
-                            alt="Гора Эльбрус"
-                        />
-                        <div class="element__footer">
-                            <h2 class="element__title">Гора Эльбрус</h2>
-                            <button
-                                type="button"
-                                class="element__like"
-                            ></button>
-                        </div>
-                    </article>
-                    <article class="element">
-                        <img
-                            class="element__photo"
-                            src="./images/Dombai.jpg"
-                            alt="Домбай"
-                        />
-                        <div class="element__footer">
-                            <h2 class="element__title">Домбай</h2>
-                            <button
-                                type="button"
-                                class="element__like"
-                            ></button>
-                        </div>
-                    </article>
-                    <article class="element">
-                        <img
-                            class="element__photo"
-                            src="./images/Elbrus.jpg"
-                            alt="Гора Эльбрус"
-                        />
-                        <div class="element__footer">
-                            <h2 class="element__title">Гора Эльбрус</h2>
-                            <button
-                                type="button"
-                                class="element__like"
-                            ></button>
-                        </div>
-                    </article>
-                    <article class="element">
-                        <img
-                            class="element__photo"
-                            src="./images/Dombai.jpg"
-                            alt="Домбай"
-                        />
-                        <div class="element__footer">
-                            <h2 class="element__title">Домбай</h2>
-                            <button
-                                type="button"
-                                class="element__like"
-                            ></button>
-                        </div>
-                    </article>
-                    <article class="element">
-                        <img
-                            class="element__photo"
-                            src="./images/Karachaevsk.jpg"
-                            alt="Карачаевск"
-                        />
-                        <div class="element__footer">
-                            <h2 class="element__title">Карачаево-Черкесия</h2>
-                            <button
-                                type="button"
-                                class="element__like"
-                            ></button>
-                        </div>
-                    </article>
-                </section>
+                <section class="cards"></section>
             </main>
             <footer>
                 <p class="footer">© 2021 Mesto Russia</p>
@@ -168,6 +83,15 @@
                 </div>
             </div>
         </div>
+        <template id="card">
+            <article class="card">
+                <img class="card__photo" alt="" />
+                <div class="card__footer">
+                    <h2 class="card__title"></h2>
+                    <button type="button" class="card__like"></button>
+                </div>
+            </article>
+        </template>
         <script src="./scripts/script.js"></script>
     </body>
 </html>
