@@ -17,7 +17,6 @@ const cardNameInput = cardsFormElement.querySelector(
 const cardLinkInput = cardsFormElement.querySelector(
     '.popup__input_type_card-link'
 );
-
 const profilePopup = document.querySelector('.popup_type_profile');
 const cardsPopup = document.querySelector('.popup_type_cards');
 
@@ -48,7 +47,7 @@ const initialCards = [
     },
 ];
 
-function addCard(cardLink, cardName) {
+function createCard(cardLink, cardName) {
     const cardTemplate = document.querySelector('#card').content;
     const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
 
@@ -59,16 +58,12 @@ function addCard(cardLink, cardName) {
     return cardElement;
 }
 
-function renderCard(cardLink, cardName) {
-    cardsContainer.prepend(addCard(cardLink, cardName));
-}
-
 function addInitialCards() {
-    for (i = initialCards.length - 1; i >= 0; i--) {
-        cardLink = initialCards[i].link;
-        cardName = initialCards[i].name;
-        renderCard(cardLink, cardName);
-    }
+    initialCards.forEach(({ link, name }) => {
+        const card = createCard(link, name);
+        addLikeListener(card);
+        cardsContainer.appendChild(card);
+    });
 }
 
 function fillProfileForm() {
@@ -98,9 +93,12 @@ function handleProfileFormSubmit(evt) {
 
 function handleAddCardFormSubmit(evt) {
     evt.preventDefault();
-    cardLink = cardLinkInput.value;
-    cardName = cardNameInput.value;
-    renderCard(cardLink, cardName);
+    const cardLink = cardLinkInput.value;
+    const cardName = cardNameInput.value;
+    const card = createCard(cardLink, cardName);
+    addLikeListener(card);
+
+    cardsContainer.prepend(card);
     closePopup(cardsPopup);
 }
 
@@ -113,5 +111,14 @@ popups.forEach((item) => {
 });
 profileFormElement.addEventListener('submit', handleProfileFormSubmit);
 cardsFormElement.addEventListener('submit', handleAddCardFormSubmit);
+
+function like(card) {
+    card.classList.toggle('card__like_active');
+}
+
+function addLikeListener(card) {
+    const cardLike = card.querySelector('.card__like');
+    cardLike.addEventListener('click', () => like(cardLike));
+}
 
 addInitialCards();
