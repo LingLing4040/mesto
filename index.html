@@ -53,7 +53,7 @@
             <footer>
                 <p class="footer">© 2021 Mesto Russia</p>
             </footer>
-            <div class="popup">
+            <div class="popup popup_type_profile">
                 <div class="popup__container">
                     <button type="button" class="popup__close-button">
                         <img
@@ -63,7 +63,10 @@
                         />
                     </button>
                     <h2 class="popup__title">Редактировать профиль</h2>
-                    <form name="edit" class="popup__form">
+                    <form
+                        name="edit"
+                        class="popup__form popup__form_type_profile"
+                    >
                         <input
                             name="profile-name"
                             type="text"
@@ -78,6 +81,35 @@
                         />
                         <button type="submit" class="popup__submit-button">
                             Сохранить
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="popup popup_type_cards">
+                <div class="popup__container">
+                    <button type="button" class="popup__close-button">
+                        <img
+                            class="popup__close-icon"
+                            src="./images/Close-icon.svg"
+                            alt="Закрыть"
+                        />
+                    </button>
+                    <h2 class="popup__title">Новое место</h2>
+                    <form name="add" class="popup__form popup__form_type_cards">
+                        <input
+                            name="card-name"
+                            type="text"
+                            placeholder="Название"
+                            class="popup__input popup__input_type_card-name"
+                        />
+                        <input
+                            name="card-link"
+                            type="text"
+                            placeholder="Ссылка на картинку"
+                            class="popup__input popup__input_type_card-link"
+                        />
+                        <button type="submit" class="popup__submit-button">
+                            Создать
                         </button>
                     </form>
                 </div>
