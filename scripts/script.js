@@ -62,6 +62,7 @@ function addInitialCards() {
     initialCards.forEach(({ link, name }) => {
         const card = createCard(link, name);
         addLikeListener(card);
+        addDeleteListener(card);
         cardsContainer.appendChild(card);
     });
 }
@@ -97,6 +98,7 @@ function handleAddCardFormSubmit(evt) {
     const cardName = cardNameInput.value;
     const card = createCard(cardLink, cardName);
     addLikeListener(card);
+    addDeleteListener(card);
 
     cardsContainer.prepend(card);
     closePopup(cardsPopup);
@@ -119,6 +121,13 @@ function like(card) {
 function addLikeListener(card) {
     const cardLike = card.querySelector('.card__like');
     cardLike.addEventListener('click', () => like(cardLike));
+}
+
+function addDeleteListener(card) {
+    const deleteButton = card.querySelector('.card__delete-button');
+    deleteButton.addEventListener('click', () => {
+        deleteButton.closest('.card').remove();
+    });
 }
 
 addInitialCards();
