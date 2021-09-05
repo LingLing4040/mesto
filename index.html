@@ -10,25 +10,14 @@
     <body class="page">
         <div class="content">
             <header class="header">
-                <img
-                    class="header__logo"
-                    src="./images/logo.svg"
-                    alt="Логотип Mesto"
-                />
+                <img class="header__logo" src="./images/logo.svg" alt="Логотип Mesto" />
             </header>
             <main>
                 <section class="profile">
-                    <img
-                        class="profile__avatar"
-                        src="./images/avatar.jpg"
-                        alt="Фото профиля"
-                    />
+                    <img class="profile__avatar" src="./images/avatar.jpg" alt="Фото профиля" />
                     <div class="profile__info">
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
-                        <button
-                            type="button"
-                            class="profile__button profile__button_type_edit"
-                        >
+                        <button type="button" class="profile__button profile__button_type_edit">
                             <img
                                 class="profile__edit-icon"
                                 src="./images/edit-button.svg"
@@ -37,15 +26,8 @@
                         </button>
                         <p class="profile__occupation">Исследователь океана</p>
                     </div>
-                    <button
-                        type="button"
-                        class="profile__button profile__button_type_add"
-                    >
-                        <img
-                            class="profile__add-icon"
-                            src="./images/add.svg"
-                            alt="Добавить"
-                        />
+                    <button type="button" class="profile__button profile__button_type_add">
+                        <img class="profile__add-icon" src="./images/add.svg" alt="Добавить" />
                     </button>
                 </section>
                 <section class="cards"></section>
@@ -63,10 +45,7 @@
                         />
                     </button>
                     <h2 class="popup__title">Редактировать профиль</h2>
-                    <form
-                        name="edit"
-                        class="popup__form popup__form_type_profile"
-                    >
+                    <form name="edit" class="popup__form popup__form_type_profile">
                         <input
                             name="profile-name"
                             type="text"
@@ -79,9 +58,7 @@
                             placeholder="Род деятельности"
                             class="popup__input popup__input_type_occupation"
                         />
-                        <button type="submit" class="popup__submit-button">
-                            Сохранить
-                        </button>
+                        <button type="submit" class="popup__submit-button">Сохранить</button>
                     </form>
                 </div>
             </div>
@@ -108,9 +85,7 @@
                             placeholder="Ссылка на картинку"
                             class="popup__input popup__input_type_card-link"
                         />
-                        <button type="submit" class="popup__submit-button">
-                            Создать
-                        </button>
+                        <button type="submit" class="popup__submit-button">Создать</button>
                     </form>
                 </div>
             </div>
@@ -123,7 +98,7 @@
                             alt="Закрыть"
                         />
                     </button>
-                    <img class="popup__image" src="" alt="" />
+                    <img class="popup__image" />
                     <figcaption class="popup__image-caption"></figcaption>
                 </figure>
             </div>
