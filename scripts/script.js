@@ -19,6 +19,10 @@ const cardLinkInput = cardsFormElement.querySelector(
 );
 const profilePopup = document.querySelector('.popup_type_profile');
 const cardsPopup = document.querySelector('.popup_type_cards');
+const bigCardPopup = document.querySelector('.popup_type_card-big');
+
+const popupImage = bigCardPopup.querySelector('.popup__image');
+const popupImageCaption = bigCardPopup.querySelector('.popup__image-caption');
 
 const initialCards = [
     {
@@ -54,7 +58,6 @@ function createCard(cardLink, cardName) {
     cardElement.querySelector('.card__photo').src = cardLink;
     cardElement.querySelector('.card__photo').alt = cardName;
     cardElement.querySelector('.card__title').textContent = cardName;
-
     return cardElement;
 }
 
@@ -63,6 +66,7 @@ function addInitialCards() {
         const card = createCard(link, name);
         addLikeListener(card);
         addDeleteListener(card);
+        addOpenCardListener(card);
         cardsContainer.appendChild(card);
     });
 }
@@ -81,6 +85,14 @@ function openProfilePopup() {
     fillProfileForm();
 }
 
+function openBigCardPopup(card) {
+    popupImage.src = card.querySelector('.card__photo').src;
+    popupImage.alt = card.querySelector('.card__photo').alt;
+    popupImageCaption.textContent =
+        card.querySelector('.card__title').textContent;
+    openPopup(bigCardPopup);
+}
+
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
 }
@@ -97,8 +109,10 @@ function handleAddCardFormSubmit(evt) {
     const cardLink = cardLinkInput.value;
     const cardName = cardNameInput.value;
     const card = createCard(cardLink, cardName);
+
     addLikeListener(card);
     addDeleteListener(card);
+    addOpenCardListener(card);
 
     cardsContainer.prepend(card);
     closePopup(cardsPopup);
@@ -128,6 +142,11 @@ function addDeleteListener(card) {
     deleteButton.addEventListener('click', () => {
         deleteButton.closest('.card').remove();
     });
+}
+
+function addOpenCardListener(card) {
+    const cardImage = card.querySelector('.card__photo');
+    cardImage.addEventListener('click', () => openBigCardPopup(card));
 }
 
 addInitialCards();
