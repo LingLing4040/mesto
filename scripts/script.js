@@ -51,15 +51,16 @@ function createCard(cardLink, cardName) {
     cardElement.querySelector('.card__photo').alt = cardName;
     cardElement.querySelector('.card__title').textContent = cardName;
 
+    addLikeListener(cardElement);
+    addDeleteListener(cardElement);
+    addOpenCardListener(cardElement);
+
     return cardElement;
 }
 
 function addInitialCards() {
     initialCards.forEach(({ link, name }) => {
         const card = createCard(link, name);
-        addLikeListener(card);
-        addDeleteListener(card);
-        addOpenCardListener(card);
         cardsContainer.appendChild(card);
     });
 }
@@ -105,11 +106,8 @@ function handleAddCardFormSubmit(evt) {
     const cardName = cardNameInput.value;
     const card = createCard(cardLink, cardName);
 
-    addLikeListener(card);
-    addDeleteListener(card);
-    addOpenCardListener(card);
-
     cardsContainer.prepend(card);
+    cardsFormElement.reset();
     closePopup(cardsPopup);
 }
 
