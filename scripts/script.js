@@ -1,4 +1,3 @@
-const popup = document.querySelector('.popup');
 const popups = document.querySelectorAll('.popup');
 const profileFormElement = document.querySelector('.popup__form_type_profile');
 const cardsFormElement = document.querySelector('.popup__form_type_cards');
