@@ -51,14 +51,25 @@
                             type="text"
                             placeholder="Имя профиля"
                             class="popup__input popup__input_type_name"
+                            required
+                            minlength="2"
+                            maxlength="40"
                         />
                         <input
                             name="profile-occupation"
                             type="text"
                             placeholder="Род деятельности"
                             class="popup__input popup__input_type_occupation"
+                            required
+                            minlength="2"
+                            maxlength="200"
                         />
-                        <button type="submit" class="popup__submit-button">Сохранить</button>
+                        <button
+                            type="submit"
+                            class="popup__submit-button popup__submit-button_inactive"
+                        >
+                            Сохранить
+                        </button>
                     </form>
                 </div>
             </div>
@@ -85,7 +96,12 @@
                             placeholder="Ссылка на картинку"
                             class="popup__input popup__input_type_card-link"
                         />
-                        <button type="submit" class="popup__submit-button">Создать</button>
+                        <button
+                            type="submit"
+                            class="popup__submit-button popup__submit-button_inactive"
+                        >
+                            Создать
+                        </button>
                     </form>
                 </div>
             </div>
