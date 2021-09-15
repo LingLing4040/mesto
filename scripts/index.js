@@ -15,6 +15,7 @@ const cardsPopup = document.querySelector('.popup_type_cards');
 const bigCardPopup = document.querySelector('.popup_type_card-big');
 const popupImage = bigCardPopup.querySelector('.popup__image');
 const popupImageCaption = bigCardPopup.querySelector('.popup__image-caption');
+const cardTemplate = document.querySelector('#card').content;
 
 const initialCards = [
     {
@@ -44,18 +45,21 @@ const initialCards = [
 ];
 
 function createCard(cardLink, cardName) {
-    const cardTemplate = document.querySelector('#card').content;
     const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
 
     cardElement.querySelector('.card__photo').src = cardLink;
     cardElement.querySelector('.card__photo').alt = cardName;
     cardElement.querySelector('.card__title').textContent = cardName;
 
+    addEventListeners(cardElement);
+
+    return cardElement;
+}
+
+function addEventListeners(cardElement) {
     addLikeListener(cardElement);
     addDeleteListener(cardElement);
     addOpenCardListener(cardElement);
-
-    return cardElement;
 }
 
 function addInitialCards() {
@@ -86,8 +90,9 @@ function openProfilePopup() {
 }
 
 function openBigCardPopup(card) {
-    popupImage.src = card.querySelector('.card__photo').src;
-    popupImage.alt = card.querySelector('.card__photo').alt;
+    const cardPhoto = card.querySelector('.card__photo');
+    popupImage.src = cardPhoto.src;
+    popupImage.alt = cardPhoto.alt;
     popupImageCaption.textContent = card.querySelector('.card__title').textContent;
     openPopup(bigCardPopup);
 }
@@ -146,10 +151,12 @@ const handleOverlayClose = (evt) => {
 
 editButton.addEventListener('click', () => openProfilePopup());
 addButton.addEventListener('click', () => openPopup(cardsPopup));
+
 popups.forEach((item) => {
     item.querySelector('.popup__close-button').addEventListener('click', () => closePopup(item));
-    item.addEventListener('mousedown', (evt) => handleOverlayClose(evt));
+    item.addEventListener('mousedown', handleOverlayClose);
 });
+
 profileFormElement.addEventListener('submit', handleProfileFormSubmit);
 cardsFormElement.addEventListener('submit', handleAddCardFormSubmit);
 
