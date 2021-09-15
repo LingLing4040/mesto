@@ -141,7 +141,6 @@ function addOpenCardListener(card) {
 const handleOverlayClose = (evt) => {
     if (evt.target === evt.currentTarget) {
         closePopup(evt.currentTarget);
-        console.log(evt.currentTarget);
     }
 };
 
