@@ -101,6 +101,8 @@ function handleAddCardFormSubmit(evt) {
     data.name = cardNameInput.value;
     cardsContainer.prepend(createCard(data));
     closePopup(cardsPopup);
+    cardLinkInput.value = '';
+    cardNameInput.value = '';
 }
 
 const handleOverlayClose = (evt) => {
