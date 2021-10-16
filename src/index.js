@@ -4,6 +4,7 @@ import PopupWithImage from '../сomponents/PopupWithImage.js';
 import PopupWithForm from '../сomponents/PopupWithForm.js';
 import Section from '../сomponents/Section.js';
 import UserInfo from '../сomponents/UserInfo.js';
+import './index.css';
 
 const profileFormElement = document.querySelector('.popup__form_type_profile');
 const cardsFormElement = document.querySelector('.popup__form_type_cards');
