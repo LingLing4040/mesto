@@ -27,9 +27,6 @@ import {
 } from '../utils/constants.js';
 
 function handleCardClick(name, link) {
-    popupImage.src = link;
-    popupImage.alt = name;
-    popupImageCaption.textContent = name;
     popupTypeBigCard.open(name, link);
 }
 
