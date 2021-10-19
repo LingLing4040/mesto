@@ -15,13 +15,14 @@ export default class Card {
 
     generate() {
         this._element = this._getElement();
-        this._element.querySelector('.card__photo').src = this._link;
-        this._element.querySelector('.card__photo').alt = this._alt;
-        this._element.querySelector('.card__title').textContent = this._name;
 
         this._likeButton = this._element.querySelector('.card__like');
         this._deleteButton = this._element.querySelector('.card__delete-button');
         this._cardImage = this._element.querySelector('.card__photo');
+
+        this._cardImage.src = this._link;
+        this._cardImage.alt = this._alt;
+        this._element.querySelector('.card__title').textContent = this._name;
 
         this._setEventListeners();
 

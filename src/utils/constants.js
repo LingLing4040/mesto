@@ -1,10 +1,23 @@
-import Card from '../сomponents/Card.js';
-import FormValidator from '../сomponents/FormValidator.js';
-import PopupWithImage from '../сomponents/PopupWithImage.js';
-import PopupWithForm from '../сomponents/PopupWithForm.js';
-import Section from '../сomponents/Section.js';
-import UserInfo from '../сomponents/UserInfo.js';
-import './index.css';
+export {
+    editButton,
+    addButton,
+    nameInput,
+    jobInput,
+    profileName,
+    profileJob,
+    cardsContainer,
+    cardNameInput,
+    cardLinkInput,
+    profilePopup,
+    cardsPopup,
+    bigCardPopup,
+    popupImage,
+    popupImageCaption,
+    profileForm,
+    cardsForm,
+    settings,
+    initialCards,
+};
 
 const profileFormElement = document.querySelector('.popup__form_type_profile');
 const cardsFormElement = document.querySelector('.popup__form_type_cards');
@@ -61,80 +74,3 @@ const initialCards = [
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg',
     },
 ];
-
-function handleCardClick(name, link) {
-    popupImage.src = link;
-    popupImage.alt = name;
-    popupImageCaption.textContent = name;
-    popupTypeBigCard.open(name, link);
-}
-
-editButton.addEventListener('click', () => {
-    const userData = user.getUserInfo();
-    nameInput.value = userData.name;
-    jobInput.value = userData.job;
-
-    popupTypeProfile.open();
-    validateProfile.resetValidation();
-});
-
-addButton.addEventListener('click', () => {
-    validateCards.resetValidation();
-    popupTypeCards.open();
-});
-
-const validateProfile = new FormValidator(settings, profileForm);
-validateProfile.enableValidation();
-
-const validateCards = new FormValidator(settings, cardsForm);
-validateCards.enableValidation();
-
-const cardsList = new Section(
-    {
-        items: initialCards,
-        renderer: (cardItem) => {
-            const card = new Card(cardItem, '.card-template', handleCardClick);
-            const cardElement = card.generate();
-
-            console.log(cardItem);
-
-            cardsList.addItems(cardElement);
-        },
-    },
-    cardsContainer
-);
-
-const popupTypeProfile = new PopupWithForm({
-    popupSelector: profilePopup,
-    handleFormSubmit: (item) => {
-        user.setUserInfo(item);
-
-        popupTypeProfile.close();
-    },
-});
-
-const popupTypeCards = new PopupWithForm({
-    popupSelector: cardsPopup,
-    handleFormSubmit: (item) => {
-        const card = new Card(item, '.card-template', handleCardClick);
-        const cardElement = card.generate();
-
-        console.log(item);
-
-        cardsList.addItems(cardElement);
-
-        cardLinkInput.value = '';
-        cardNameInput.value = '';
-        popupTypeCards.close();
-    },
-});
-
-const user = new UserInfo({ nameSelector: profileName, jobSelector: profileJob });
-
-const popupTypeBigCard = new PopupWithImage(bigCardPopup);
-
-cardsList.renderItems();
-
-popupTypeProfile.setEventListeners();
-popupTypeCards.setEventListeners();
-popupTypeBigCard.setEventListeners();
