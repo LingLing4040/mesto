@@ -14,6 +14,24 @@ export default class Popup {
         document.removeEventListener('keydown', this._handleEscClose);
     }
 
+    renderLoading(isLoading) {
+        this._submitButton = this._popup.querySelector('.popup__button');
+        if (isLoading) {
+            this._submitButton.textContent = 'Сохранение...';
+        } else {
+            this._submitButton.textContent = 'Сохранить';
+        }
+    }
+
+    renderCreating(isCreating) {
+        this._submitButton = this._popup.querySelector('.popup__button');
+        if (isCreating) {
+            this._submitButton.textContent = 'Создание...';
+        } else {
+            this._submitButton.textContent = 'Создать';
+        }
+    }
+
     _handleEscClose(evt) {
         if (evt.key === 'Escape') {
             this.close();

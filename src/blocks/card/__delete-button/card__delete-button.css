@@ -6,6 +6,7 @@
     border: 0;
     transition: opacity 0.3s;
     background: transparent;
+    display: none;
 }
 
 .card__delete-button:hover {

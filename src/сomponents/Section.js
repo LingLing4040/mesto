@@ -1,12 +1,11 @@
 export default class Section {
-    constructor({ items, renderer }, container) {
-        this._initialArray = items.reverse();
+    constructor({ renderer }, container) {
         this._renderer = renderer;
         this._container = container;
     }
 
-    renderItems() {
-        this._initialArray.forEach((item) => {
+    renderItems(items) {
+        items.reverse().forEach((item) => {
             this._renderer(item);
         });
     }
