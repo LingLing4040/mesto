@@ -7,14 +7,14 @@ export default class ConfirmationPopup extends Popup {
     }
 
     setConfirmationHandler(handler) {
-        this.ConfirmationHandler = handler;
+        this.сonfirmationHandler = handler;
     }
 
     setEventListeners() {
         super.setEventListeners();
         this._form.addEventListener('submit', (evt) => {
             evt.preventDefault();
-            this.ConfirmationHandler();
+            this.сonfirmationHandler();
         });
     }
 }
