@@ -1,7 +1,8 @@
 export default class Popup {
-    constructor(popupSelector) {
-        this._popup = popupSelector;
+    constructor(popup) {
+        this._popup = popup;
         this._handleEscClose = this._handleEscClose.bind(this);
+        this._submitButton = this._popup.querySelector('.popup__button');
     }
 
     open() {
@@ -14,22 +15,8 @@ export default class Popup {
         document.removeEventListener('keydown', this._handleEscClose);
     }
 
-    renderLoading(isLoading) {
-        this._submitButton = this._popup.querySelector('.popup__button');
-        if (isLoading) {
-            this._submitButton.textContent = 'Сохранение...';
-        } else {
-            this._submitButton.textContent = 'Сохранить';
-        }
-    }
-
-    renderCreating(isCreating) {
-        this._submitButton = this._popup.querySelector('.popup__button');
-        if (isCreating) {
-            this._submitButton.textContent = 'Создание...';
-        } else {
-            this._submitButton.textContent = 'Создать';
-        }
+    renderLoading(buttonText) {
+        this._submitButton.textContent = buttonText;
     }
 
     _handleEscClose(evt) {

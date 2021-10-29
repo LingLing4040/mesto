@@ -122,7 +122,7 @@ const cardsList = new Section(
 const popupTypeProfile = new PopupWithForm({
     popupSelector: profilePopup,
     handleFormSubmit: (item) => {
-        popupTypeProfile.renderLoading(true);
+        popupTypeProfile.renderLoading('Сохранение...');
         api.editInfo(item)
             .then((data) => {
                 user.setUserInfo(data);
@@ -132,7 +132,7 @@ const popupTypeProfile = new PopupWithForm({
                 console.log(`${err}`);
             })
             .finally(() => {
-                popupTypeProfile.renderLoading(false);
+                popupTypeProfile.renderLoading('Сохранить');
             });
     },
 });
@@ -140,7 +140,7 @@ const popupTypeProfile = new PopupWithForm({
 const popupTypeCards = new PopupWithForm({
     popupSelector: cardsPopup,
     handleFormSubmit: (item) => {
-        popupTypeCards.renderCreating(true);
+        popupTypeCards.renderLoading('Создание...');
         api.addCard(item)
             .then((data) => {
                 cardsList.addItems(createCard(data, myId));
@@ -150,7 +150,7 @@ const popupTypeCards = new PopupWithForm({
                 console.log(`${err}`);
             })
             .finally(() => {
-                popupTypeCards.renderCreating(false);
+                popupTypeCards.renderLoading('Создать');
             });
     },
 });
@@ -158,24 +158,24 @@ const popupTypeCards = new PopupWithForm({
 const popupTypeAvatar = new PopupWithForm({
     popupSelector: avatarPopup,
     handleFormSubmit: (item) => {
-        popupTypeAvatar.renderLoading(true);
+        popupTypeAvatar.renderLoading('Сохранение...');
         api.updateAvatar(item)
             .then((data) => {
-                avatarPicture.style.backgroundImage = `url(${data.avatar})`;
+                user.setUserInfo(data);
                 popupTypeAvatar.close();
             })
             .catch((err) => {
                 console.log(`${err}`);
             })
             .finally(() => {
-                popupTypeAvatar.renderLoading(false);
+                popupTypeAvatar.renderLoading('Сохранить');
             });
     },
 });
 
 const popupTypeDelete = new ConfirmationPopup(deletePopup);
 
-const user = new UserInfo({ name: profileName, about: profileJob });
+const user = new UserInfo({ name: profileName, about: profileJob, _id: myId, avatar: profileAvatar });
 
 const popupTypeBigCard = new PopupWithImage(bigCardPopup);
 
@@ -189,8 +189,6 @@ Promise.all([api.getInitialCards(), api.getInfo()])
     .then(([cards, info]) => {
         user.setUserInfo(info);
         myId = info._id;
-        profileAvatar.style.backgroundImage = `url(${info.avatar})`;
-
         cardsList.renderItems(cards);
     })
     .catch((err) => {
